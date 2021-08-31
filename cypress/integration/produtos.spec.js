@@ -46,5 +46,12 @@ describe('Funcionalidade Página de predutos', () =>{
 
     });
 
+    it.only('Deve adicionar o produto ao carrinho - Usando comandos customizados', () => {
+        cy.addProdutos('Aero Daily Fitness Tee', 'S', 'Brown', 3)
+    });
+
+    it.only('Deve adicionar o produto ao carrinho - Usando comandos customizados', () => {
+        cy.addProdutos('Ariel Roll Sleeve Sweatshirt', 'M', 'Green', 5)
+    });
 
 });

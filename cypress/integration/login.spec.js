@@ -1,7 +1,7 @@
 /// <reference types="cypress" />
 
-//const perfil = require("../fixtures/perfil.json");
-
+const perfil = require("../fixtures/perfil.json"); // Para excecutar o teste com Arquivo de dados, 
+                                        //para o teste chamando diretamente a fixture, não precisa
 
 context('Funcionalidade Login', () =>{
     
@@ -33,7 +33,7 @@ context('Funcionalidade Login', () =>{
     it.only('Deve fazer login com sucesso - Usando Fixture', () => {
         cy.fixture('perfil').then(dados => {
             cy.get('#username').type(dados.usuario)
-            cy.get('#password').type(dados.senha)
+            cy.get('#password').type(dados.senha, {log: false}) // {log: false} serve para não mostrar a senha no painel do cypress
             cy.get('.woocommerce-form > .button').click()
 
             cy.get('.page-title').should('contain', 'Minha conta')
